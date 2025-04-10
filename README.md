@@ -1,1 +1,2 @@
-# DeepLearningMGI12
+# Deep Learning Project
+### Naut Engelsma & Ties Kuijpers
