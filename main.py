@@ -11,8 +11,6 @@ shutil.move('UCMImages/UCMerced_LandUse/Images', './Images')
 
 # Clean up
 shutil.rmtree('UCMImages')
-if os.path.exists('README.md'):
-    os.remove('README.md')
 os.remove('UCMerced_LandUse.zip')
 
 # List files in current directory (optional)
