@@ -71,8 +71,8 @@ transform = transforms.Compose([
 ])
 
 dataset = UCMercedMultiLabelDataset(
-    root="path/to/UCMerced_LandUse",
-    csv_file="path/to/labels.csv",
+    root="Images",
+    txt_file="LandUse_Multilabeled.txt",
     transforms=transform
 )
 
