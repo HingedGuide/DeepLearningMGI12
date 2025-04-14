@@ -6,29 +6,37 @@ import pandas as pd
 import numpy as np
 import torchvision
 
-from torchgeo.datasets import VisionDataset
+from torchvision.datasets import VisionDataset
 import pandas as pd
 from PIL import Image
 import torch
 import os
 
-class UCMercedMultiLabelDataset(VisionDataset):
-    def __init__(self, root, csv_file, transforms=None):
+
+
+class UCMercedMultiLabelDatasetFromTxt(VisionDataset):
+    def __init__(self, root, txt_file, transforms=None):
         super().__init__(root=root, transforms=transforms)
-        self.annotations = pd.read_csv(csv_file)
-        self.image_paths = self.annotations['filename'].tolist()
-        self.labels = self.annotations.drop(columns=['filename']).values.astype(float)
+        self.image_paths = []
+        self.labels = []
+
+        with open(txt_file, 'r') as f:
+            for line in f:
+                parts = line.strip().split()  # split on spaces
+                self.image_paths.append(parts[0])
+                label = list(map(float, parts[1:]))  # convert labels to floats
+                self.labels.append(label)
 
     def __getitem__(self, index):
         img_path = os.path.join(self.root, self.image_paths[index])
-        image = Image.open(img_path).convert('RGB')
+        image = Image.open(img_path).convert("RGB")
         label = torch.tensor(self.labels[index], dtype=torch.float32)
         if self.transforms:
             image = self.transforms(image)
         return {"image": image, "label": label}
 
     def __len__(self):
-        return len(self.annotations)
+        return len(self.image_paths)
 
 import torch.nn as nn
 import pytorch_lightning as pl
