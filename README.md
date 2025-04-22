@@ -1,6 +1,6 @@
 # DINO ResNet50 vs. ViT-S/8 on Multi-Label Land Use Classification
 
-This project compares two self-supervised learning models—**ResNet50** and **ViT-S/8**, both pretrained using **DINO**—on a **multi-label land use classification task**. The dataset consists of images labeled with multiple land use tags, and performance is evaluated using metrics like accuracy, precision, recall, and F1 score.
+This project compares two self-supervised learning models—**ResNet50** and **ViT-S/8**, both pretrained using **DINOv2**—on a **multi-label land use classification task**. The dataset consists of images labeled with multiple land use tags, and performance is evaluated using metrics like accuracy, precision, recall, and F1 score.
 
 ------------------------------------------------------------------------
 
