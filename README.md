@@ -32,6 +32,8 @@ Images can be downloaded from the [UCM Data Repository](https://git.wur.nl/lobry
 - Download the dataset archive from the link above.
 - Unzip the contents into an `Images/` folder in the root directory of this project.
 
+When running the resnet50_vs_vits8.ipynb file in Google Colab, the images can be downloaded and placed in the correct folder by running the second code block
+
 
 1. Ensure your dataset is correctly placed:
    - `LandUse_Multilabeled.txt`
@@ -55,6 +57,7 @@ The notebook evaluates models using:
 -   Precision
 -   Recall
 -   F1 Score
+-   Hammming loss
 
 Plots are generated to visualize performance and label-wise statistics.
 
